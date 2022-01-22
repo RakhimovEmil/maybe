@@ -20,7 +20,7 @@ mb1.value().field = "other_string";
 assert(mb2.value().field == "some_string");
 assert(mb1.value().field == "other_string");
 ```
-For pointer types, maybe uses nullptr as a sign of absence and takes no more memory than the pointer itself.
+For pointer types, `maybe` uses nullptr as a sign of absence and takes no more memory than the pointer itself.
 
 The problem with wrapper classes is that you often have to create temporary objects that have to be copied:
 
