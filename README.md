@@ -8,9 +8,9 @@ struct test {
     string field = "some_string";
 };
 
-control_03::maybe<test> mb1(test{});
-const control_03::maybe<test> mb2(mb1);
-control_03::maybe<test> mb3;
+my_impl::maybe<test> mb1(test{});
+const my_impl::maybe<test> mb2(mb1);
+my_impl::maybe<test> mb3;
 
 assert(mb1);
 assert(!mb3);
@@ -20,17 +20,18 @@ mb1.value().field = "other_string";
 assert(mb2.value().field == "some_string");
 assert(mb1.value().field == "other_string");
 ```
+For pointer types, maybe uses nullptr as a sign of absence and takes no more memory than the pointer itself.
 
 The problem with wrapper classes is that you often have to create temporary objects that have to be copied:
 
 ```
-maybe<MyClass> mb(MyClass{arg1, arg2, ...});
+my_impl::maybe<MyClass> mb(MyClass{arg1, arg2, ...});
 ```
 
 That's why the `emplace` method is implemented internally, which initializes the internal value with directly passed arguments (no temporary objects are created)
 
 ```
-maybe<my_class> mb;
+my_impl::maybe<my_class> mb;
 
 // one object is created in mb (it's new value)
 mb.emplace(arg1, arg2, ...);

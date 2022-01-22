@@ -1,6 +1,6 @@
 #pragma once
 
-namespace control_03 {
+namespace my_impl {
     template<typename T>
     class maybe {
     public:
