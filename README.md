@@ -1,5 +1,5 @@
 # maybe<T>
-std::optional implementation with shorter functionality
+`std::optional` implementation with shorter functionality
 
 This class is a wrapper over a value of type T (`maybe<T>`). At each point in time, `maybe` either stores a value or an indication of its absence. The difference from a smart pointer is that `maybe` does not allocate dynamic memory for an object, because the memory of the required size is already inside `maybe<T>` (if you create an empty `maybe<T> (default ctor)`, no object of type `T` will be created at this point)
 
